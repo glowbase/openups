@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="/assets/styles/global.css">
+		<link rel="stylesheet" href="/assets/styles/iconset.css">
+		<link rel="stylesheet" href="/assets/styles/mobile.css">
+
+		<title>OpenUPS | Dashboard</title>
+	</head>
+	<body class="">
+		<div class="top-nav">
+			<i class="ph-list toggle-nav"></i>
+		</div>
+
+		<div class="left-nav">
+			<div class="nav-item toggle-nav">
+				<i class="ph-caret-left"></i>
+			</div>
+
+			<div class="nav-divider"><span>Overview</span> <div></div></div>
+
+			<a class="nav-item active" href="/">
+				<i class="ph-house"></i>
+				<div class="nav-link">Dashboard</div>
+			</a>
+
+			<div class="nav-divider"><span>UPS</span> <div></div></div>
+
+			<a class="nav-item" href="/ups/diagnostics/">
+				<i class="ph-activity"></i>
+				<div class="nav-link">Diagnostics</div>
+			</a>
+			<a class="nav-item" href="/ups/configuration">
+				<i class="ph-wrench"></i>
+				<div class="nav-link">Configuration</div>
+			</a>
+			<a class="nav-item" href="/ups/connected-equipment/">
+				<i class="ph-share-network"></i>
+				<div class="nav-link">Connected Equipment</div>
+			</a>
+			<a class="nav-item" href="/ups/scheduled-shutdown/">
+				<i class="ph-timer"></i>
+				<div class="nav-link">Scheduled Shutdown</div>
+			</a>
+
+			<div class="nav-divider"><span>Settings</span> <div></div></div>
+
+			<a class="nav-item" href="/local/shutdown-events/">
+				<i class="ph-power"></i>
+				<div class="nav-link">Shutdown Events</div>
+			</a>
+			<a class="nav-item" href="/local/notifications/">
+				<i class="ph-bell"></i>
+				<div class="nav-link">Notifications</div>
+			</a>
+			<a class="nav-item" href="/local/notification-settings/">
+				<i class="ph-gear-six"></i>
+				<div class="nav-link">Notification Settings</div>
+			</a>
+			<a class="nav-item" href="/local/recipients/">
+				<i class="ph-users"></i>
+				<div class="nav-link">Recipients</div>
+			</a>
+			<a class="nav-item" href="/local/security/">
+				<i class="ph-shield"></i>
+				<div class="nav-link">Security</div>
+			</a>
+			<a class="nav-item" href="/local/advanced/">
+				<i class="ph-sliders"></i>
+				<div class="nav-link">Advanced</div>
+			</a>
+			<a class="nav-item" href="/local/network-configuration/">
+				<i class="ph-wifi-high"></i>
+				<div class="nav-link">Network Configuration</div>
+			</a>
+
+			<div class="nav-divider"><span>Reporting</span> <div></div></div>
+
+			<a class="nav-item" href="/reporting/event-logs/">
+				<i class="ph-clock-counter-clockwise"></i>
+				<div class="nav-link">Event Logs</div>
+			</a>
+			<a class="nav-item" href="/reporting/data-logs/">
+				<i class="ph-database"></i>
+				<div class="nav-link">Data Logs</div>
+			</a>
+			<a class="nav-item" href="/reporting/energy-usage/">
+				<i class="ph-lightbulb"></i>
+				<div class="nav-link">Energy Usage</div>
+			</a>
+		</div>
+
+		<div class="page-container">
+			<h6 class="page-heading">Dashboard</h6>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">Overview</li>
+				<li class="breadcrumb-item active"><a href="/">Dashboard</a></li>
+			</ol>
+
+			<div class="alert alert-success hide" id="normal-alerts"></div>
+			<div class="alert alert-warning hide" id="warning-alerts"></div>
+
+			<h4 class="page-subheading">UPS Status</h4>
+
+			<div class="row status-row">
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header bg-success">
+							<div>INPUT</div>
+							<span class="statetext"></span>
+							<i class="ph-check-circle-bold"></i>
+						</div>
+						<div class="card-body">
+							<div class="measured-item">
+								<div class="measured-item-heading">Voltage</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Volts</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Current</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Amps</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Wattage</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Watts</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Frequency</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Hertz</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header bg-success">
+							<div>OUTPUT</div>
+							<span class="statetext"></span>
+							<i class="ph-check-circle-bold"></i>
+						</div>
+						<div class="card-body">
+							<div class="measured-item">
+								<div class="measured-item-heading">Voltage</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Volts</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Current</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Amps</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Wattage</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Watts</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Frequency</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Hertz</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Load</div>
+								<div class="progress">
+									<div class="progress-bar bg-success bars" role="progressbar"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header bg-success">
+							<div>BATTERY</div>
+							<span class="statetext"></span>
+							<i class="ph-check-circle-bold"></i>
+						</div>
+						<div class="card-body">
+							<div class="measured-item">
+								<div class="measured-item-heading">Voltage</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+									<span class="metric">Volts</span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">Runtime</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+								</div>
+							</div>
+							<div class="measured-item">
+								<div class="measured-item-heading">End Runtime</div>
+								<div class="measured-item-content">
+									<span class="value"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row"></div>
+
+			<!-- <h4 class="page-subheading">UPS Statistics</h4>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-header">
+							<span>POWER USAGE</span>
+						</div>
+						<div class="card-body">
+							<div class="row mt-3 machine-status">
+								<div class="col-md-4">
+									<h3>3</h3>
+									<h6>Connected</h6>
+								</div>
+								<div class="col-md-4">
+									<h3>0</h3>
+									<h6>Disconnected</h6>
+								</div>
+								<div class="col-md-4">
+									<h3>0</h3>
+									<h6>Maintenance</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-header">
+							<span>RECENT ALERTS</span>
+							<span class="badge bg-primary">8</span>
+						</div>
+						<div class="card-body">
+							<div class="row mt-3 machine-status">
+								<div class="col-md-4">
+									<h3>6</h3>
+									<h6>Powered On</h6>
+								</div>
+								<div class="col-md-4">
+									<h3>1</h3>
+									<h6>Powered Off</h6>
+								</div>
+								<div class="col-md-4">
+									<h3>0</h3>
+									<h6>Suspended</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h4 class="page-subheading">Recent Logs</h4>
+
+			<div class="row mt-3">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header list-headings">
+							<div class="col-md-2">Time</div>
+							<div class="col-md-2">Type</div>
+							<div class="col-md-8">Event</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+		<script src="/assets/scripts/config.js"></script>
+		<script src="/assets/scripts/interface.js"></script>
+
+		<script src="/assets/scripts/helpers.js"></script>
+		<script src="/assets/scripts/calc.js"></script>
+
+		<script src="/assets/scripts/ups.js"></script>
+	</body>
+</html>

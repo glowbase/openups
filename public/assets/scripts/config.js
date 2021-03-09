@@ -1,0 +1,2 @@
+const API = 'http://localhost:8000/api/v1';
+const TOKEN = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTkyOTMwNTY4M30.IX59cWqkfTYdntL_LrF_XmfxLUCSPc-N6adx5REEDdsY09tt42IxSOsw-teYuNltXI89-KaV7JH9ZhvTIk9vjQ';

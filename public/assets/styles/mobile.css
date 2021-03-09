@@ -1,0 +1,48 @@
+.mobile .left-nav {
+    padding-top: 8px;
+}
+
+.mobile .nav-item {
+    width: 256px;
+    padding-left: 20px;
+}
+
+.mobile .nav-divider {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.mobile .nav-divider > span {
+    display: none;
+}
+
+.mobile .nav-divider {
+    margin-top: 8px;
+}
+
+.mobile .nav-divider > div {
+    padding: 0;
+    margin: 0;
+}
+
+.mobile .page-container {
+    left: 0;
+    padding: 18px;
+    padding-top: 10px;
+}
+
+.mobile .top-nav {
+    left: 0;
+}
+
+.toggle-nav:not(.mobile) {
+    display: none;
+}
+
+.mobile .toggle-nav {
+    display: block;
+}
+
+.mobile .page-heading {
+    margin-top: 12px;
+}
